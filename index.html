@@ -3,7 +3,7 @@
 <head>
   <style>
     body{
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 0, 0, 0.15), rgba(255, 255, 0, 0.15));
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 0, 0, 0.8), rgba(255, 255, 0, 1));
       width: 100vw;
       height: 100vh;
     }
@@ -36,7 +36,7 @@ function ciz() {
   if (x + r > canvas.width || x - r < 0) vx *= -1;
   if (y + r > canvas.height || y - r < 0) vy *= -1;
 
-  requestAnimationFrame(çiz);
+  requestAnimationFrame(ciz);
 }
 
 ciz();
