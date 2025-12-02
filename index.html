@@ -1,48 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>mebigiris8.11.40.2</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 40px;
-        background-color: #fff;
-      }
-      .uyari {
-        padding: 20px;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        font-size: 50px;
-        margin-top: 20%;
-        display: block;
-        text-align: center;
-      }
-      a.tehlikeli {
-        color: rgb(10, 0 140);
-        font-size: 40px;
-        padding: 10px;
-        display: block;
-        background-color: white;
-        margin-left: 25%;
-        width: 50%;
-        margin-top: 5px;
-      }
-    </style>
-  </head>
+<head>
+  <style>
+    body{
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 0, 0, 0.3), rgba(255, 255, 0, 0.3));
+    }
+    #oyun{
+      background: blue;
+    }
+  </style>
+</head>
   <body>
-    <h2>MEBİ için bağlantı</h2>
-    <h3>Ne var MEBİ'de?</h3>
-    <p>Şimdiye kadarki en büyük yerel kaynak olan MEBİ, içinde gelecek LGS'ye yönelik sorumlu tutulan yerlerden teker teker soru barındırıyor.</p>
-    <p>Bu hafta MEBİ'ye eklenen yenilik sayesinde "KANKA"ya artık istediğin türden, istediğin soruyu sorabiliyorsun!</p>
-    <br> <h3>Güvenliğiniz için sadece .gov uzantılı sitelere giriniz.</h3>
-    <div class="uyari">
-      <p>MEBİ giriş</p>
-    </div>
+    <canvas id="oyun" width="400" height="250"></canvas>
+    <script>
+      const canvas = document.getElementById("oyun");
+const c = canvas.getContext("2d");
 
-    <a class="tehlikeli" href="https://isegzidrafok.github.io/ichBinHungrig/" target="_blank">
-      https://www.mebi.gov.tr
-    </a>
+let x = 50, y = 50;
+let vx = 3, vy = 2;
+const r = 12;
+
+function ciz() {
+  c.clearRect(0, 0, canvas.width, canvas.height);
+
+  c.beginPath();
+  c.arc(x, y, r, 0, Math.PI*2);
+  c.fillStyle = "orange";
+  c.fill();
+
+  x += vx;
+  y += vy;
+
+  if (x + r > canvas.width || x - r < 0) vx *= -1;
+  if (y + r > canvas.height || y - r < 0) vy *= -1;
+
+  requestAnimationFrame(çiz);
+}
+
+ciz();
+      
+    </script>
   </body>
 </html>
